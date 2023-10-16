@@ -1,0 +1,119 @@
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4rem;
+
+    &__logo {
+        width: 20rem;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__navigation {
+        position: static;
+
+        @include respond(tablet) {
+            display: none;
+            top: 12rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $clr-white;
+            min-width: 62vw;
+            padding-block: 4rem;
+            border-radius: 2rem;
+        }
+
+        &[data-visible] {
+            display: block;
+            position: absolute;
+            z-index: 8;
+        }
+    }
+
+    &__navigation-mobile {
+        width: 100vw;
+        background-color: #fff;
+        display: block;
+    }
+
+    &__navigation-list {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+
+        @include respond(tablet) {
+            flex-direction: column;
+        }
+    }
+
+    &__navigation-link {
+        position: relative;
+
+        &:link,
+        &:visited {
+            font-size: 1.8rem;
+
+            @include respond(tablet) {
+                color: $clr-blue-900;
+            }
+        }
+
+        &--basic {
+            font-family: $font-base;
+            color: $clr-white;
+
+            &::after {
+                @include respond(tablet) {
+                    content: '';
+                    position: absolute;
+                    bottom: -1rem;
+                    left: -25%;
+                    width: 150%;
+                    height: .5rem;
+                    background-color: $clr-blue-900;
+                    opacity: .4;
+                    border-radius: 100rem;
+                }
+            }
+        }
+
+        &--pill {
+            font-family: $font-heading;
+            background-color: $clr-white;
+            color: $clr-blue-900;
+            text-transform: uppercase;
+            border-radius: 100rem;
+            padding: 1.5rem 3rem;
+
+            @include respond(tablet) {
+                padding: 0.75rem 1.5rem;
+                background-color: $clr-blue-900;
+                color: $clr-white !important;
+            }
+
+        }
+    }
+
+
+}
+
+.mobile-menu-toggle {
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    padding: 0.5rem;
+    display: none;
+
+    @include respond(tablet) {
+        display: block;
+    }
+}
+
+.mobile-menu-toggle .icon-close {
+    display: none;
+}

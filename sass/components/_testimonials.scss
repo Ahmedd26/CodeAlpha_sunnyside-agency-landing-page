@@ -1,0 +1,80 @@
+.testimonials {
+    max-width: 70%;
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 4rem;
+    margin: 18rem auto;
+
+    @include respond(phone) {
+        margin-block: 10rem;
+        max-width: 90%;
+
+    }
+
+    &__heading {
+        grid-column: 1/-1;
+        font-size: 3rem;
+        letter-spacing: .8rem;
+        font-family: $font-heading;
+        text-transform: uppercase;
+        text-align: center;
+        color: $clr-blue-50;
+
+        @include respond(phone) {
+            font-size: 2.5rem;
+            letter-spacing: .5rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        gap: 4rem;
+
+        @include respond(phone) {
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__avatar {
+        width: 8rem;
+
+        img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    &__paragraph {
+        font-family: $font-base;
+        font-size: 1.8rem;
+        line-height: 1.6;
+        text-align: center;
+        color: $clr-blue-100;
+        // width: 36rem;
+    }
+
+    &__client {
+        display: grid;
+        justify-items: center;
+        gap: 1rem;
+    }
+
+    &__client-name {
+        font-family: $font-heading;
+        font-size: 2rem;
+        color: $clr-blue-900;
+    }
+
+    &__client-role {
+        font-family: $font-base;
+        font-size: 1.8rem;
+        color: $clr-blue-50;
+    }
+}
